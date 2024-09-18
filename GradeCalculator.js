@@ -3,7 +3,7 @@ let i;
 let sum;
 
 function getAverage(scores) {
-  sum = 0;
+   sum = 0;
    average = 0;
  for (i = 0; i < scores.length; i++) {
    sum += scores[i];
