@@ -21,7 +21,7 @@ function getAverage(scores) {
       grade = "C";
       } else if ( score >= 60 && score < 70) {
       grade = "D"; 
-      } else if (score < 60) {
+      } else {
       grade = "F"; 
     }
   
