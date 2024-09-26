@@ -15,24 +15,8 @@ const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
-let xp = 0;
-let health = 100;
-let gold = 50;
-let currentWeaponIndex = 0;
-let fighting;
-let monsterHealth;
-let inventory = ["stick"];
 
-const button1 = document.querySelector('#button1');
-const button2 = document.querySelector("#button2");
-const button3 = document.querySelector("#button3");
-const text = document.querySelector("#text");
-const xpText = document.querySelector("#xpText");
-const healthText = document.querySelector("#healthText");
-const goldText = document.querySelector("#goldText");
-const monsterStats = document.querySelector("#monsterStats");
-const monsterName = document.querySelector("#monsterName");
-const monsterHealthText = document.querySelector("#monsterHealth");
+
 
 const weapons = [{
     name: "stick",
@@ -70,6 +54,19 @@ const locations = [
       },
 ];
 
+const monsters = [{
+    name: "slime",
+    level: 2,
+    health: 15
+  },{
+    name: "fanged beast",
+    level: 8,
+    health: 60
+  },{
+    name: "dragon",
+    level: 20,
+    health: 300
+  }]
 
 // initialize buttons
 button1.onclick = goStore;
@@ -93,6 +90,7 @@ function goTown() {
 }
 
 function goStore() {
+    update(locations[1]);
 
 }
 
@@ -100,9 +98,6 @@ function goCave() {
     update(locations[2]);
 }
 
-function fightDragon() {
-  console.log("Fighting dragon.");
-}
 
 
 function buyHealth() {
@@ -162,32 +157,29 @@ function sellWeapon() {
     }
 }
 
-function goStore() {
-        update(locations[1]);
-
-  }
-
 
 function fightDragon() {
-
-  }
-
- 
+    console.log("Fighting dragon.");
+}
   
 
-  function fightSlime() {
-
+function fightSlime() {
+    fighting = 0;
+    goFight();
   }
   
-  function fightBeast() {
+function fightBeast() {
     
-  }
+
+}
+
+function goFight () {
+  
+}
+
 // initialize buttons
 
 button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
-function update(location) {
-
-}
