@@ -17,7 +17,7 @@ const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 
 
-
+//weapons
 const weapons = [{
     name: "stick",
     power: 5
@@ -79,6 +79,8 @@ const locations = [
       }
 ];
 
+
+//monsters
 const monsters = [{
     name: "slime",
     level: 2,
@@ -92,11 +94,15 @@ const monsters = [{
     level: 20,
     health: 300
   }]
+  
 
 // initialize buttons
 button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
+
+
+//Basic Game Function
 
 function update(location) {
     monsterStats.style.display = "none";
@@ -233,9 +239,11 @@ function attack() {
       
           }
       }
-      if (Math.random() <= .1) {
+    if (Math.random() <= .1 && inventory.length !== 1) {
+        text.innerText += " Your "+ inventory.pop() + " breaks.";
+        currentWeaponIndex --;
 
-      } 
+    } 
 
 
 }
@@ -262,6 +270,18 @@ function defeatMonster() {
 
 }
 
+
+function getMonsterAttackValue(level) {
+    const hit = (level * 5) - (Math.floor(Math.random() * xp));
+    return hit > 0 ? hit : 0;  
+}
+
+function isMonsterHit() {
+    return Math.random() > .2 || health < 20;
+}
+
+
+//restart function
 function restart() {
     xp = 0;
     health = 100;
@@ -274,15 +294,22 @@ function restart() {
     goTown();
   }
 
-  function getMonsterAttackValue(level) {
-    const hit = (level * 5) - (Math.floor(Math.random() * xp));
-    return hit > 0 ? hit : 0;  
+// Easter Egg Functionality
+function easterEgg() {
+    update(locations[7]);
 }
 
-function isMonsterHit() {
-    return Math.random() > .2 || health < 20;
+function pick(guess) {
+
 }
 
+function pickTwo() {
+    pick(2);
+  }
+  
+  function pickEight() {
+    pick(8);
+  }
 // initialize buttons
 
 button1.onclick = goStore;
