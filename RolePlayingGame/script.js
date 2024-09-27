@@ -310,7 +310,11 @@ function easterEgg() {
 }
 
 function pick(guess) {
-
+    const numbers = [];
+    while (numbers.length < 10) {
+        numbers.push(Math.floor(Math.random() * 11));
+    }
+    text.innerText = "You picked " + guess + ". Here are the random numbers:\n"
 }
 
 function pickTwo() {
@@ -320,6 +324,7 @@ function pickTwo() {
   function pickEight() {
     pick(8);
   }
+
 // initialize buttons
 
 button1.onclick = goStore;
