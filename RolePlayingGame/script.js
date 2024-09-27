@@ -65,7 +65,7 @@ const locations = [
       }, {
         name: "kill monster",
         "button text": ["Go to town square", "Go to town square", "Go to town square"],
-        "button functions": [goTown, goTown, goTown],
+        "button functions": [goTown, goTown, easterEgg],
         text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.'
       },
       {
@@ -314,7 +314,23 @@ function pick(guess) {
     while (numbers.length < 10) {
         numbers.push(Math.floor(Math.random() * 11));
     }
-    text.innerText = "You picked " + guess + ". Here are the random numbers:\n"
+    text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
+    for (let i = 0; i < 10; i++) {
+        text.innerText += numbers[i] + "\n";
+        text.innerText += "Right! You win 20 gold!";
+    gold += 20;
+    goldText.innerText = gold;
+    }
+    if (numbers.includes(guess)){
+
+    } else {
+        text.innerText += "Wrong! You lose 10 health!";
+        health -= 10;
+        healthText.innerText = health;
+        if (health <= 0) {
+            lose();
+        }
+
 }
 
 function pickTwo() {
@@ -330,4 +346,4 @@ function pickTwo() {
 button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
-
+}
